@@ -24,15 +24,15 @@ public class Responder
         aleatorio = new Random();
         respuestas = new ArrayList<>();
         respu = new HashMap<>();
-        respu.put("error","cual es el código de error que le está dando");
+        respu.put("error","cuál es el código de error que le está dando");
         respu.put("pantalla","detallemé mejor el mensaje que le sale por pantalla");
         respu.put("conexión","compruebe que el cable está correctamente conectado");
         respu.put("clave","compruebe que la clave introducida es la correcta");
-        respuestas.add("Expliqueme cuál es la causa de su consulta");
+        respuestas.add("Explíqueme cuál es la causa de su consulta");
         respuestas.add("Deme mas detalles para poder ayudarle");
-        respuestas.add("Esta seguro de que lo tiene correctamente enchufado");
-        respuestas.add("Desconectelo de la corriente y vuelva a conectarlo");
-        respuestas.add("Esto suena interesante, deme algun dato más");
+        respuestas.add("Está seguro de que lo tiene correctamente enchufado");
+        respuestas.add("Desconéctelo de la corriente y vuelva a conectarlo");
+        respuestas.add("Esto suena interesante, deme algún dato más");
         
     }
 
@@ -42,9 +42,9 @@ public class Responder
      */
     public String generateResponse(String clave)
     {
-        String respuesta = respuestas.get(aleatorio.nextInt(respuestas.size()));
-        if (respu.containsKey(clave)) {
-            respuesta = respu.get(clave);
+        String respuesta = respu.get(clave);
+        if (respuesta == null) {
+            respuesta = respuestas.get(aleatorio.nextInt(respuestas.size()));
         }
         return respuesta;
     }
