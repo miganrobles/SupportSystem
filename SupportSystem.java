@@ -42,6 +42,10 @@ public class SupportSystem
             if (input.trim().toLowerCase().equals("bye")) {
                 finished = true;
             }
+            else if (input.equals("error") || input.equals("pantalla") || input.equals("conexión") || input.equals("clave")){
+                String response = responder.getRespuesta(input);
+                System.out.println(response);
+            }
             else {
                 String response = responder.generateResponse();
                 System.out.println(response);
