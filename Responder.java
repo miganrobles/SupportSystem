@@ -40,16 +40,12 @@ public class Responder
      * Generate a response.
      * @return   A string that should be displayed as the response
      */
-    public String generateResponse()
+    public String generateResponse(String clave)
     {
-        return respuestas.get(aleatorio.nextInt(respuestas.size()));
-    }
-    
-    /**
-     * Devuelve una respuesta según la palabra indicada
-     */
-    public String getRespuesta(String palabra)
-    {
-        return respu.get(palabra);
+        String respuesta = respuestas.get(aleatorio.nextInt(respuestas.size()));
+        if (respu.containsKey(clave)) {
+            respuesta = respu.get(clave);
+        }
+        return respuesta;
     }
 }
